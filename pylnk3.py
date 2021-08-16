@@ -12,6 +12,7 @@ import re
 import time
 from datetime import datetime
 from io import BytesIO, IOBase
+from pathlib import Path, PurePath
 from pprint import pformat
 from struct import pack, unpack
 from typing import Dict, Optional, Tuple, Union
@@ -1476,7 +1477,7 @@ class Lnk(object):
     
     def __init__(self, f=None):
         self.file = None
-        if type(f) == str or type(f) == str:
+        if type(f) == str or isinstance(f) == PurePath:
             self.file = f
             try:
                 f = open(self.file, 'rb')
